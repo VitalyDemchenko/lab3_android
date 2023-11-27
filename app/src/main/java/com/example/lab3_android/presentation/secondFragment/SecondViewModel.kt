@@ -30,15 +30,33 @@ class SecondViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     if ((response.body()?.data?.size ?: 0) <= 0) {
 
+                        txtDataViewM2.value = " ПОМИЛКА ЗАГРУЗКИ "
+
                         //
                     } else {
                         response.body()?.let {
 
                             //
                             txtDataViewM2.value = it.data.joinToString("\n\n")
+
+
+                            txtDataViewM2.value += "\n"
+                            txtDataViewM2.value += "\nTotal: ${it.page}"
+
+                            txtDataViewM2.value += "\n"
+                            txtDataViewM2.value += "\nSkip: ${it.per_page}"
+
+                            txtDataViewM2.value += "\n"
+                            txtDataViewM2.value += "\nLimit: ${it.total}"
+
+                            txtDataViewM2.value += "\n"
+                            txtDataViewM2.value += "\nLimit: ${it.total_pages}"
                         }
                     }
                 } else {
+
+                    txtDataViewM2.value = " ПОМИЛКА ЗАГРУЗКИ "
+
                     //
                 }
             } catch (ex: Exception) {

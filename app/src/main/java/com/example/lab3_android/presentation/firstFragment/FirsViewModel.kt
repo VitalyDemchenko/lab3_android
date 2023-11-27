@@ -28,14 +28,27 @@ class FirsViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     if ((response.body()?.products?.size ?: 0) <= 0) {
 
+                        txtDataViewM1.value = " ПОМИЛКА ЗАГРУЗКИ "
+
                        //
                     } else {
                         response.body()?.let {
 
                             txtDataViewM1.value = it.products.joinToString("\n\n")
+
+                            txtDataViewM1.value += "\n"
+                            txtDataViewM1.value += "\nTotal: ${it.total}"
+
+                            txtDataViewM1.value += "\n"
+                            txtDataViewM1.value += "\nSkip: ${it.skip}"
+
+                            txtDataViewM1.value += "\n"
+                            txtDataViewM1.value += "\nLimit: ${it.limit}"
                         }
                     }
                 } else {
+
+                    txtDataViewM1.value = " ПОМИЛКА ЗАГРУЗКИ "
 
                    //
                 }
