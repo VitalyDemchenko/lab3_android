@@ -8,20 +8,31 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="177dp"
-        android:layout_height="88dp"
+        android:id="@+id/txtData_new"
+        android:layout_width="390dp"
+        android:layout_height="596dp"
         android:text="@string/hello_blank_fragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_sec_to_first"
-        android:layout_width="177dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="28dp"
-        android:text="Button"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Назад"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_new"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

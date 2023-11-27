@@ -15,4 +15,7 @@ data class ProductsApiModel(
 
     @SerializedName("skip")
     var skip : Int,
+
+    @SerializedName("limit")
+    var limit : Int,
 )

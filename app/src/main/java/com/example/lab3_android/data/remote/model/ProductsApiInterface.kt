@@ -7,7 +7,7 @@ import retrofit2.http.GET
 interface ProductsApiInterface {
     // ApiInterface2
 
-    @GET("/products")
+    @GET("/products/search?q=phone")
     suspend fun getAll(): Response<ProductsApiModel>
 
 }

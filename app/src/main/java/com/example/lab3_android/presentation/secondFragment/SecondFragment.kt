@@ -1,24 +1,28 @@
 package com.example.lab3_android.presentation.secondFragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.example.lab3_android.R
+import com.example.lab3_android.data.remote.model.ApiFactory2
+import com.example.lab3_android.data.remote.model.WeatherApiInterface
 import com.example.lab3_android.databinding.FragmentSecondBinding
 import com.example.lab3_android.presentation.MAIN
+import kotlinx.coroutines.launch
+import java.lang.Exception
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 
-//// TODO: Rename parameter arguments, choose names that match
-//// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//private const val ARG_PARAM1 = "param1"
-//private const val ARG_PARAM2 = "param2"
-//
-///**
-// * A simple [Fragment] subclass.
-// * Use the [SecondFragment.newInstance] factory method to
-// * create an instance of this fragment.
-// */
+import androidx.lifecycle.ViewModel
+import com.example.lab3_android.presentation.secondFragment.SecondViewModel
+
 class SecondFragment : Fragment() {
     // TODO: Rename and change types of parameters
 //    private var param1: String? = null
@@ -31,7 +35,10 @@ class SecondFragment : Fragment() {
 //            param2 = it.getString(ARG_PARAM2)
 //        }
 //    }
-lateinit var binding: FragmentSecondBinding
+
+private val viewModel: SecondViewModel by viewModels()
+   private lateinit var binding: FragmentSecondBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,13 +51,56 @@ lateinit var binding: FragmentSecondBinding
        // return inflater.inflate(R.layout.fragment_second, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+       // lateinit var txtData_2 : TextView
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSecToFirst.setOnClickListener {
 
             MAIN.navController.navigate(R.id.action_secondFragment_to_firstFragment)
+
+
+            }
+
+
+            binding.buttonNew.setOnClickListener {
+
+                viewModel.getProductList()
+
+                viewModel.txtData.observe(viewLifecycleOwner) { newData ->
+                    binding.txtDataNew.text = newData
+            }
+            // Trigger the API call
+
+
+
         }
+      //   txtData_2 = binding.txtDataNew
+      //  val p = binding.buttonNew
+
+
+            // getUserList()
+           // getWeatherList()
+
+            // Отримати посилання на txtData_2 в контексті фрагмента
+
+
+            //val p = findViewById<Button>(R.id.button_2)
+
+            // Тепер ви можете використовувати txtData_2 за потреби
+
+
+//.create(ProductsApiInterface::class.java)
+
+
+
+
+
     }
+
+
+
+
 //    companion object {
 //        /**
 //         * Use this factory method to create a new instance of
