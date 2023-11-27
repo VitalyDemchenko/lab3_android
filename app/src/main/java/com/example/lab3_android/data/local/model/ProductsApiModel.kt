@@ -18,4 +18,7 @@ data class ProductsApiModel(
 
     @SerializedName("limit")
     var limit : Int,
+
+
+
 )

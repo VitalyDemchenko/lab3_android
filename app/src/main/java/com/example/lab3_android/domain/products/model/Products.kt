@@ -15,4 +15,21 @@ data class Products(
 
     @SerializedName("price")
     var price: Int,
+
+    @SerializedName("discountPercentage")
+    var discountPercentage: Float,
+
+    @SerializedName("rating")
+    var rating: Float,
+
+    @SerializedName("stock")
+    var stock: Int,
+
+    @SerializedName("brand")
+    var brand: String,
+
+    @SerializedName("category")
+    var category: String,
+
+
 )
