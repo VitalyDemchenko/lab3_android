@@ -9,8 +9,10 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/txtData"
-        android:layout_width="401dp"
-        android:layout_height="582dp"
+        android:layout_width="380dp"
+        android:layout_height="563dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:text="@string/hello_blank_fragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

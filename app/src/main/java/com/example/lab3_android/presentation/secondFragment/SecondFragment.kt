@@ -1,40 +1,17 @@
 package com.example.lab3_android.presentation.secondFragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
 import com.example.lab3_android.R
-import com.example.lab3_android.data.remote.model.ApiFactory2
-import com.example.lab3_android.data.remote.model.WeatherApiInterface
 import com.example.lab3_android.databinding.FragmentSecondBinding
 import com.example.lab3_android.presentation.MAIN
-import kotlinx.coroutines.launch
-import java.lang.Exception
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 
-import androidx.lifecycle.ViewModel
-import com.example.lab3_android.presentation.secondFragment.SecondViewModel
-
 class SecondFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-//    private var param1: String? = null
-//    private var param2: String? = null
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        arguments?.let {
-//            param1 = it.getString(ARG_PARAM1)
-//            param2 = it.getString(ARG_PARAM2)
-//        }
-//    }
 
 private val viewModel: SecondViewModel by viewModels()
    private lateinit var binding: FragmentSecondBinding
@@ -43,16 +20,15 @@ private val viewModel: SecondViewModel by viewModels()
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentSecondBinding.inflate(layoutInflater, container, false)
 
+        binding = FragmentSecondBinding.inflate(layoutInflater, container, false)
         return binding.root
 
-       // return inflater.inflate(R.layout.fragment_second, container, false)
+
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-       // lateinit var txtData_2 : TextView
+
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSecToFirst.setOnClickListener {
@@ -65,32 +41,17 @@ private val viewModel: SecondViewModel by viewModels()
 
             binding.buttonNew.setOnClickListener {
 
-                viewModel.getProductList()
+                viewModel.getListReqres1()
 
-                viewModel.txtData.observe(viewLifecycleOwner) { newData ->
+                viewModel.txtDataViewM2.observe(viewLifecycleOwner) { newData ->
                     binding.txtDataNew.text = newData
             }
-            // Trigger the API call
+
 
 
 
         }
-      //   txtData_2 = binding.txtDataNew
-      //  val p = binding.buttonNew
 
-
-            // getUserList()
-           // getWeatherList()
-
-            // Отримати посилання на txtData_2 в контексті фрагмента
-
-
-            //val p = findViewById<Button>(R.id.button_2)
-
-            // Тепер ви можете використовувати txtData_2 за потреби
-
-
-//.create(ProductsApiInterface::class.java)
 
 
 

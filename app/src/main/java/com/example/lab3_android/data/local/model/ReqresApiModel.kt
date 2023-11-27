@@ -1,15 +1,19 @@
 package com.example.lab3_android.data.local.model
 
-import com.example.lab3_android.domain.products.model.Products
-import com.example.lab3_android.domain.products.model.Weather
+import com.example.lab3_android.domain.products.model.Reqres
 import com.google.gson.annotations.SerializedName
 
-data class WeatherApiModel(
+data class ReqresApiModel(
 
 
 
     @SerializedName("data")
-   var data: List<Weather>,
+   var data: List<Reqres>,
+
+
+
+
+
 //
 //    @SerializedName("total")
 //    var total: Int,

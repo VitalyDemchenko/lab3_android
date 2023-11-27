@@ -15,11 +15,8 @@ import com.example.lab3_android.data.remote.model.ApiFactory
 import com.example.lab3_android.data.remote.model.ProductsApiInterface
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import com.example.lab3_android.data.remote.model.ApiFactory2
-import com.example.lab3_android.data.remote.model.WeatherApiInterface
 import com.example.lab3_android.presentation.secondFragment.SecondFragment
 import com.example.lab3_android.presentation.secondFragment.SecondViewModel
-import androidx.fragment.app.viewModels
 import androidx.activity.viewModels
 
 
@@ -27,7 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var navController: NavController
-    private lateinit var txtData : TextView
+
+//    private lateinit var txtData : TextView
 
 
     private val viewModel: SecondViewModel by viewModels()
@@ -43,19 +41,19 @@ class MainActivity : AppCompatActivity() {
 
         MAIN = this
 
-        txtData = findViewById(R.id.txtData)
+//        txtData = findViewById(R.id.txtData)
 
-        val fragmentSecond = supportFragmentManager.findFragmentByTag("fragment_second") as SecondFragment?
+//        val fragmentSecond = supportFragmentManager.findFragmentByTag("fragment_second") as SecondFragment?
 
 // Перевірити, чи фрагмент існує і чи він приєднаний
 
 
-        val b = findViewById<Button>(R.id.button_get_1)
+//        val b = findViewById<Button>(R.id.button_get_1)
 
-        b.setOnClickListener {
-            // getUserList()
-            getProductList()
-        }
+//        b.setOnClickListener {
+//            // getUserList()
+//            getProductList()
+//        }
 //             val viewModel: SecondViewModel by viewModels()
 
 
@@ -68,52 +66,54 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun getProductList(){
-//.create(ProductsApiInterface::class.java)
-        val retrofit = ApiFactory.getInstance()
-        val apiInterface = retrofit.create(ProductsApiInterface::class.java)
-        lifecycleScope.launch{
-            try {
-                val response = apiInterface.getAll()
-                if(response.isSuccessful){
-                    if((response.body()?.products?.size?:0) <=0){
-                        Toast.makeText(
-                            this@MainActivity,
-                            "No Data",
-                            Toast.LENGTH_LONG
+//    Стара функція
 
 
-                        ).show()
-                    }else   {
-                        response.body()?.let {
-                            txtData.text = it.products.joinToString("\n\n")
-                        }
-
-                    }
-
-                }
-                else{
-                    Toast.makeText(
-                        this@MainActivity,
-                        response.errorBody().toString(),
-                        Toast.LENGTH_LONG
-
-                    ).show()
-                }
-
-
-
-            } catch (Ex: Exception){
-                Ex.localizedMessage?.let { Log.e("Error",it) }
-            }
-
-
-
-        }
-
-
-
-    }
+//    private fun getProductList(){
+//        val retrofit = ApiFactory.getInstance()
+//        val apiInterface = retrofit.create(ProductsApiInterface::class.java)
+//        lifecycleScope.launch{
+//            try {
+//                val response = apiInterface.getAll()
+//                if(response.isSuccessful){
+//                    if((response.body()?.products?.size?:0) <=0){
+//                        Toast.makeText(
+//                            this@MainActivity,
+//                            "No Data",
+//                            Toast.LENGTH_LONG
+//
+//
+//                        ).show()
+//                    }else   {
+//                        response.body()?.let {
+//                            txtData.text = it.products.joinToString("\n\n")
+//                        }
+//
+//                    }
+//
+//                }
+//                else{
+//                    Toast.makeText(
+//                        this@MainActivity,
+//                        response.errorBody().toString(),
+//                        Toast.LENGTH_LONG
+//
+//                    ).show()
+//                }
+//
+//
+//
+//            } catch (Ex: Exception){
+//                Ex.localizedMessage?.let { Log.e("Error",it) }
+//            }
+//
+//
+//
+//        }
+//
+//
+//
+//    }
 
 
 
